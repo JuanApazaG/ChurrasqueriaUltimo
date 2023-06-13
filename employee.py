@@ -135,7 +135,7 @@ class login_page:
         self.button2.configure(background="#d46c91")
         self.button2.configure(font="-family {Poppins SemiBold} -size 20")
         self.button2.configure(borderwidth="0")
-        self.button2.configure(text="""SALIR""")
+        self.button2.configure(text="""Salir""")
         self.button2.configure(command=salir)
 
 class Item:
