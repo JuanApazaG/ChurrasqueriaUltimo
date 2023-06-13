@@ -84,8 +84,8 @@ def logout():
         root.deiconify()
         page1.entry1.delete(0, END)
         page1.entry2.delete(0, END)
-# def salir():
-#             root.destroy()
+def salir():
+            root.destroy()
 class login_page:
     
 
@@ -125,18 +125,18 @@ class login_page:
         self.button1.configure(text="""Inicio de sesion""")
         self.button1.configure(command=login)
         
-        # self.button2 = Button(root)
-        # self.button2.place(relx=0.366, rely=0.785, width=356, height=43)
-        # self.button2.configure(relief="flat")
-        # self.button2.configure(overrelief="flat")
-        # self.button2.configure(activebackground="#D2463E")
-        # self.button2.configure(cursor="hand2")
-        # self.button2.configure(foreground="#ffffff")
-        # self.button2.configure(background="#D2463E")
-        # self.button2.configure(font="-family {Poppins SemiBold} -size 20")
-        # self.button2.configure(borderwidth="0")
-        # self.button2.configure(text="""SALIR""")
-        # self.button2.configure(command=salir)
+        self.button2 = Button(root)
+        self.button2.place(relx=0.366, rely=0.785, width=356, height=43)
+        self.button2.configure(relief="flat")
+        self.button2.configure(overrelief="flat")
+        self.button2.configure(activebackground="#D2463E")
+        self.button2.configure(cursor="hand2")
+        self.button2.configure(foreground="#ffffff")
+        self.button2.configure(background="#d46c91")
+        self.button2.configure(font="-family {Poppins SemiBold} -size 20")
+        self.button2.configure(borderwidth="0")
+        self.button2.configure(text="""SALIR""")
+        self.button2.configure(command=salir)
 
 class Item:
     def __init__(self, name, price, qty):
