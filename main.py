@@ -30,7 +30,7 @@ label1.place(relx=0, rely=0, width=1366, height=768)
 img = PhotoImage(file="./images/main1.png")
 label1.configure(image=img)
 
-label_title = Label(main, text="INGRESAR", font=("Arial", 40), bg="#ff8831", fg="black")
+label_title = Label(main, text="INGRESAR", font=("Impact", 40), bg="#27374D", fg="#d46c91")
 label_title.place(relx=0.5, rely=0.2, anchor="center")
 
 button1 = Button(main)
@@ -46,7 +46,7 @@ img2 = PhotoImage(file="./images/empleado.png")
 button1.configure(image=img2)
 button1.configure(command=emp)
 
-label2 = Label(text="Empleado", bg="#ff8831",fg="black",font=("Arial", 15))
+label2 = Label(text="Empleado", bg="#27374D",fg="#d46c91",font=("Arial", 15))
 label2.place(relx=0.316, rely=0.446 + 0.175, width=146, height=30)
 
 button2 = Button(main)
@@ -62,6 +62,6 @@ img3 = PhotoImage(file="./images/administrador.png")
 button2.configure(image=img3)
 button2.configure(command=adm)
 
-label2 = Label(text="Administrador", bg="#ff8831",fg="black",font=("Arial", 15))
+label2 = Label(text="Administrador", bg="#27374D",fg="#d46c91",font=("Arial", 15))
 label2.place(relx=0.566, rely=0.446 + 0.175, width=146, height=30)
 main.mainloop()
