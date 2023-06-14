@@ -44,7 +44,7 @@ def random_bill_number(stringLength):
 
 
 def valid_phone(phn):
-    if re.match(r"[789]\d{9}$", phn):
+    if re.match(r"[678]\d{7}$", phn):
         return True
     return False
 
@@ -578,7 +578,7 @@ class bill_window:
                 self.Scrolledtext1.configure(state="normal")
                 divider = "\n\n\n"+("─"*61)
                 self.Scrolledtext1.insert('insert', divider)
-                total = "\nTotal\t\t\t\t\t\t\t\t\t\t\tRs. {}".format(self.cart.total())
+                total = "\nTotal\t\t\t\t\t\t\t\t\t\t\tBs. {}".format(self.cart.total())
                 self.Scrolledtext1.insert('insert', total)
                 divider2 = "\n"+("─"*61)
                 self.Scrolledtext1.insert('insert', divider2)

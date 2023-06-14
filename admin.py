@@ -31,16 +31,16 @@ with sqlite3.connect("./Database/store.db") as db:
 
 def random_emp_id(stringLength):
     Digits = string.digits
-    strr=''.join(random.choice(Digits) for i in range(stringLength-3))
-    return ('EMP'+strr)
+    strr=''.join(random.choice(Digits) for i in range(stringLength-5))
+    return ('E'+strr)
 
 def valid_phone(phn):
-    if re.match(r"[789]\d{9}$", phn):
+    if re.match(r"[678]\d{7}$", phn):
         return True
     return False
 
 def valid_aadhar(aad):
-    if aad.isdigit() and len(aad)==12:
+    if aad.isdigit() and len(aad)==8:
         return True
     return False
 
@@ -1385,7 +1385,7 @@ class add_employee:
                                         )
                                 cur.execute(insert, [emp_id, ename, econtact, eadd, eaddhar, epass, edes])
                                 db.commit()
-                                messagebox.showinfo("Success!!", "Employee ID: {} successfully added in database.".format(emp_id), parent=e_add)
+                                messagebox.showinfo("Cuenta Creada", "ID de Empleado: {} añadido a la Base de Datos.".format(emp_id), parent=e_add)
                                 self.clearr()
                             else:
                                 messagebox.showerror("Oops!", "Introduzca; Contraseña.", parent=e_add)
@@ -1753,7 +1753,7 @@ class Invoice:
         to_delete = []
 
         if len(self.sel)!=0:
-            sure = messagebox.askyesno("Confirm", "Are you sure you want to delete selected invoice(s)?", parent=invoice)
+            sure = messagebox.askyesno("Confirm", "Estás seguro que quieres eliminar la factura?", parent=invoice)
             if sure == True:
                 for i in self.sel:
                     for j in self.tree.item(i)["values"]:
@@ -1768,7 +1768,7 @@ class Invoice:
                     cur.execute(delete, [k])
                     db.commit()
 
-                messagebox.showinfo("Success!!", "Invoice(s) deleted from database.", parent=invoice)
+                messagebox.showinfo("Success!!", "IFactura(s) eliminada de la Base de Datos.", parent=invoice)
                 self.sel.clear()
                 self.tree.delete(*self.tree.get_children())
 
