@@ -401,13 +401,13 @@ class Inventory:
             )
         )
 
-        self.tree.heading("Product ID", text="Product ID", anchor=W)
+        self.tree.heading("Product ID", text="ID de Producto", anchor=W)
         self.tree.heading("Name", text="Nombre", anchor=W)
         self.tree.heading("Category", text="Categoría", anchor=W)
         self.tree.heading("Sub-Category", text="Sub-Categoría", anchor=W)
-        self.tree.heading("In Stock", text="In Stock", anchor=W)
-        self.tree.heading("MRP", text="MRP", anchor=W)
-        self.tree.heading("Cost Price", text="Precio", anchor=W)
+        self.tree.heading("In Stock", text="En Stock", anchor=W)
+        self.tree.heading("MRP", text="P. de Compra", anchor=W)
+        self.tree.heading("Cost Price", text="P. de Venta ", anchor=W)
         self.tree.heading("Vendor No.", text="Vendor No.", anchor=W)
 
         self.tree.column("#0", stretch=NO, minwidth=0, width=0)
@@ -438,16 +438,16 @@ class Inventory:
         try:
             to_search = int(self.entry1.get())
         except ValueError:
-            messagebox.showerror("Oops!!", "Invalid Product Id.", parent=inv)
+            messagebox.showerror("Oops!!", "ID de Producto invalidop.", parent=inv)
         else:
             for search in val:
                 if search==to_search:
                     self.tree.selection_set(val[val.index(search)-1])
                     self.tree.focus(val[val.index(search)-1])
-                    messagebox.showinfo("Success!!", "Product ID: {} found.".format(self.entry1.get()), parent=inv)
+                    messagebox.showinfo("Éxito!", "Product ID: {} encontrado.".format(self.entry1.get()), parent=inv)
                     break
             else: 
-                messagebox.showerror("Oops!!", "Product ID: {} not found.".format(self.entry1.get()), parent=inv)
+                messagebox.showerror("Oops!", "Product ID: {} no encontrado.".format(self.entry1.get()), parent=inv)
     
     sel = []
     def on_tree_select(self, Event):
@@ -1579,10 +1579,10 @@ class Invoice:
             )
         )
 
-        self.tree.heading("Bill Number", text="Bill Number", anchor=W)
-        self.tree.heading("Date", text="Date", anchor=W)
-        self.tree.heading("Customer Name", text="Customer Name", anchor=W)
-        self.tree.heading("Customer Phone No.", text="Customer Phone No.", anchor=W)
+        self.tree.heading("Bill Number", text="Número de factura", anchor=W)
+        self.tree.heading("Date", text="Fecha", anchor=W)
+        self.tree.heading("Customer Name", text="Nombre del cliente", anchor=W)
+        self.tree.heading("Customer Phone No.", text="Número del cliente", anchor=W)
         
 
         self.tree.column("#0", stretch=NO, minwidth=0, width=0)
