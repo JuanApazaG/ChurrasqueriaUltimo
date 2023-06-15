@@ -212,7 +212,7 @@ class Admin_Page:
         self.message.place(relx=0.046, rely=0.056, width=62, height=30)
         self.message.configure(font="-family {Poppins} -size 12")
         self.message.configure(foreground="#ffffff")
-        self.message.configure(background="#FE6B61")
+        self.message.configure(background="#383c52")
         self.message.configure(text="""ADMIN""")
         self.message.configure(anchor="w")
 
@@ -270,18 +270,7 @@ class Admin_Page:
         self.button4.configure(command=invoices)
 
 
-        self.button5 = Button(adm)
-        self.button5.place(relx=0.732, rely=0.508, width=146, height=63)
-        self.button5.configure(relief="flat")
-        self.button5.configure(overrelief="flat")
-        self.button5.configure(activebackground="#ffffff")
-        self.button5.configure(cursor="hand2")
-        self.button5.configure(foreground="#333333")
-        self.button5.configure(background="#ffffff")
-        self.button5.configure(font="-family {Poppins SemiBold} -size 12")
-        self.button5.configure(borderwidth="0")
-        self.button5.configure(text="""Acerca de""")
-        self.button5.configure(command=about)
+       
 
     def Logout(self):
         sure = messagebox.askyesno("Cerrar", "Estás seguro de salir?", parent=adm)
