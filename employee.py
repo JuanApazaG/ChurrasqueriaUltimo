@@ -4,6 +4,7 @@ import re
 import random
 import string
 from tkinter import *
+import ult.centrar as ult
 from tkinter import messagebox
 from tkinter import ttk
 from time import strftime
@@ -17,6 +18,7 @@ root = Tk()
 
 root.geometry("1366x768")
 root.title("Usuario Empleado")
+ult.centrar_ventana(root,1366,768)
 
 
 user = StringVar()
@@ -44,7 +46,7 @@ def random_bill_number(stringLength):
 
 
 def valid_phone(phn):
-    if re.match(r"[789]\d{9}$", phn):
+    if re.match(r"[678]\d{7}$", phn):
         return True
     return False
 
@@ -91,6 +93,7 @@ class login_page:
 
     def __init__(self, top=None):
         top.geometry("1366x768")
+        ult.centrar_ventana(top,1366,768)
         top.resizable(0, 0)
         top.title("Retail Manager")
 
@@ -186,6 +189,7 @@ def exitt():
 class bill_window:
     def __init__(self, top=None):
         top.geometry("1366x768")
+        ult.centrar_ventana(top,1366,768)
         top.resizable(0, 0)
         top.title("Billing System")
 
@@ -578,7 +582,7 @@ class bill_window:
                 self.Scrolledtext1.configure(state="normal")
                 divider = "\n\n\n"+("─"*61)
                 self.Scrolledtext1.insert('insert', divider)
-                total = "\nTotal\t\t\t\t\t\t\t\t\t\t\tRs. {}".format(self.cart.total())
+                total = "\nTotal\t\t\t\t\t\t\t\t\t\t\tBs. {}".format(self.cart.total())
                 self.Scrolledtext1.insert('insert', total)
                 divider2 = "\n"+("─"*61)
                 self.Scrolledtext1.insert('insert', divider2)
