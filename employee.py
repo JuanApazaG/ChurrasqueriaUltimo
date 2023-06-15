@@ -17,7 +17,7 @@ from tkinter import scrolledtext as tkst
 root = Tk()
 
 root.geometry("1366x768")
-root.title("Usuario Empleado")
+root.title("Modo: CAJA")
 ult.centrar_ventana(root,1366,768)
 
 
@@ -61,7 +61,7 @@ def login(Event=None):
     cur.execute(find_user, [username, password])
     results = cur.fetchall()
     if results:
-        messagebox.showinfo("Login Page", "The login is successful")
+        messagebox.showinfo("Inicio de Sesión", "Exitosa!")
         page1.entry1.delete(0, END)
         page1.entry2.delete(0, END)
         root.withdraw()
@@ -74,13 +74,13 @@ def login(Event=None):
         biller.mainloop()
 
     else:
-        messagebox.showerror("Error", "Usario o contraseña incorrectas.")
+        messagebox.showerror("Error", "Usuario y/o contraseña incorrectas.")
         page1.entry2.delete(0, END)
 
 
 
 def logout():
-    sure = messagebox.askyesno("Logout", "Are you sure you want to logout?", parent=biller)
+    sure = messagebox.askyesno("Cerrar", "Estás seguro de cerrar sesión?", parent=biller)
     if sure == True:
         biller.destroy()
         root.deiconify()
@@ -95,7 +95,7 @@ class login_page:
         top.geometry("1366x768")
         ult.centrar_ventana(top,1366,768)
         top.resizable(0, 0)
-        top.title("Retail Manager")
+        top.title("Modo: Cajero")
 
         self.label1 = Label(root)
         self.label1.place(relx=0, rely=0, width=1366, height=768)
@@ -180,7 +180,7 @@ class Cart:
     
 
 def exitt():
-    sure = messagebox.askyesno("Exit","Are you sure you want to exit?", parent=biller)
+    sure = messagebox.askyesno("Salir","Estás Seguro?", parent=biller)
     if sure == True:
         biller.destroy()
         root.destroy()
@@ -191,7 +191,7 @@ class bill_window:
         top.geometry("1366x768")
         ult.centrar_ventana(top,1366,768)
         top.resizable(0, 0)
-        top.title("Billing System")
+        top.title("Sistema de Facturación")
 
         self.label = Label(biller)
         self.label.place(relx=0, rely=0, width=1366, height=768)
@@ -240,7 +240,7 @@ class bill_window:
         self.button1.configure(background="#d46c91")
         self.button1.configure(font="-family {Poppins SemiBold} -size 12")
         self.button1.configure(borderwidth="0")
-        self.button1.configure(text="""logout""")
+        self.button1.configure(text="""cerrar""")
         self.button1.configure(command=logout)
 
         self.button2 = Button(biller)
@@ -462,11 +462,11 @@ class bill_window:
                         self.Scrolledtext1.insert('insert', bill_text)
                         self.Scrolledtext1.configure(state="disabled")
                     else:
-                        messagebox.showerror("Oops!", "Out of stock. Check quantity.", parent=biller)
+                        messagebox.showerror("Oops!", "Agotado. Revisa la cantidad.", parent=biller)
                 else:
-                    messagebox.showerror("Oops!", "Invalid quantity.", parent=biller)
+                    messagebox.showerror("Oops!", "Cantidad incorrecta.", parent=biller)
             else:
-                messagebox.showerror("Oops!", "Choose a product.", parent=biller)
+                messagebox.showerror("Oops!", "Elige un producto.", parent=biller)
         else:
             self.Scrolledtext1.delete('1.0', END)
             new_li = []
@@ -498,11 +498,11 @@ class bill_window:
                         self.Scrolledtext1.insert('insert', bill_text)
                         self.Scrolledtext1.configure(state="disabled")
                     else:
-                        messagebox.showerror("Oops!", "Out of stock. Check quantity.", parent=biller)
+                        messagebox.showerror("Oops!", "Agotado. Revisa la cantidad.", parent=biller)
                 else:
-                    messagebox.showerror("Oops!", "Invalid quantity.", parent=biller)
+                    messagebox.showerror("Oops!", "Cantidad Incorrecta.", parent=biller)
             else:
-                messagebox.showerror("Oops!", "Choose a product.", parent=biller)
+                messagebox.showerror("Oops!", "Elige un producto.", parent=biller)
 
     def remove_product(self):
         if(self.cart.isEmpty()!=True):
@@ -512,7 +512,7 @@ class bill_window:
                 try:
                     self.cart.remove_item()
                 except IndexError:
-                    messagebox.showerror("Oops!", "Cart is empty", parent=biller)
+                    messagebox.showerror("Oops!", "Tabla vacia", parent=biller)
                 else:
                     self.Scrolledtext1.configure(state="normal")
                     get_all_bill = (self.Scrolledtext1.get('1.0', END).split("\n"))
@@ -527,7 +527,7 @@ class bill_window:
                 try:
                     self.cart.remove_item()
                 except IndexError:
-                    messagebox.showerror("Oops!", "Cart is empty", parent=biller)
+                    messagebox.showerror("Oops!", "Tabla vacia", parent=biller)
                 else:
                     self.Scrolledtext1.delete('1.0', END)
                     new_li = []
@@ -545,7 +545,7 @@ class bill_window:
                     self.Scrolledtext1.configure(state="disabled")
 
         else:
-            messagebox.showerror("Oops!", "Add a product.", parent=biller)
+            messagebox.showerror("Oops!", "Añade un producto.", parent=biller)
 
     def wel_bill(self):
         self.name_message = Text(biller)
@@ -574,7 +574,7 @@ class bill_window:
     
     def total_bill(self):
         if self.cart.isEmpty():
-            messagebox.showerror("Oops!", "Add a product.", parent=biller)
+            messagebox.showerror("Oops!", "Añade un producto.", parent=biller)
         else:
             self.Scrolledtext1.configure(state="normal")
             strr = self.Scrolledtext1.get('1.0', END)
@@ -597,13 +597,13 @@ class bill_window:
             strr = self.Scrolledtext1.get('1.0', END)
             self.wel_bill()
             if(cust_name.get()==""):
-                messagebox.showerror("Oops!", "Please enter a name.", parent=biller)
+                messagebox.showerror("Oops!", "Introduzca: Nombre.", parent=biller)
             elif(cust_num.get()==""):
-                messagebox.showerror("Oops!", "Please enter a number.", parent=biller)
+                messagebox.showerror("Oops!", "Introduzca: Número.", parent=biller)
             elif valid_phone(cust_num.get())==False:
-                messagebox.showerror("Oops!", "Please enter a valid number.", parent=biller)
+                messagebox.showerror("Oops!", "Introduzca: Número correcto.", parent=biller)
             elif(self.cart.isEmpty()):
-                messagebox.showerror("Oops!", "Cart is empty.", parent=biller)
+                messagebox.showerror("Oops!", "La tabla esta vacia.", parent=biller)
             else: 
                 if strr.find('Total')==-1:
                     self.total_bill()
@@ -640,7 +640,7 @@ class bill_window:
                         update_qty = "UPDATE raw_inventory SET stock = stock - ? WHERE product_name = ?"
                         cur.execute(update_qty, [qty, name])
                         db.commit()
-                    messagebox.showinfo("Success!!", "Bill Generated", parent=biller)
+                    messagebox.showinfo("Realizado", "Factura Generada Exitosamente", parent=biller)
                     self.entry1.configure(state="disabled", disabledbackground="#ffffff", disabledforeground="#000000")
                     self.entry2.configure(state="disabled", disabledbackground="#ffffff", disabledforeground="#000000")
                     self.state = 0
@@ -717,7 +717,7 @@ class bill_window:
             self.state = 0
 
         else:
-            messagebox.showerror("Error!!", "Bill not found.", parent=biller)
+            messagebox.showerror("Error!!", "Factura no encontrada.", parent=biller)
             self.entry3.delete(0, END)
             
     def time(self):
