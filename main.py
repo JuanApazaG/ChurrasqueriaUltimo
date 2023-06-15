@@ -1,4 +1,4 @@
-__author__ = "macaw"
+__author__ = "usfx"
 import os
 from tkinter import *  
 from tkinter import messagebox
@@ -46,7 +46,7 @@ img2 = PhotoImage(file="./images/empleado.png")
 button1.configure(image=img2)
 button1.configure(command=emp)
 
-label2 = Label(text="Empleado", bg="#ffffff",fg="#d46c91",font=("Arial", 15))
+label2 = Label(text="Cajero", bg="#ffffff",fg="#d46c91",font=("Arial", 15))
 label2.place(relx=0.316, rely=0.446 + 0.175, width=146, height=30)
 
 button2 = Button(main)

@@ -82,7 +82,7 @@ class login_page:
         self.button1.configure(background="#d46c91")
         self.button1.configure(font="-family {Poppins SemiBold} -size 20")
         self.button1.configure(borderwidth="0")
-        self.button1.configure(text="""Inicio de sesion""")
+        self.button1.configure(text="""Inicio de sesión""")
         self.button1.configure(command=self.login)
 
 
@@ -280,7 +280,6 @@ class Admin_Page:
             page1.entry1.delete(0, END)
             page1.entry2.delete(0, END)
 
-
 class Inventory:
     def __init__(self, top=None):
         top.geometry("1366x768")
@@ -394,7 +393,7 @@ class Inventory:
         self.menu1.place(relx=0.0, rely=0.0, width=86, height=20)
         self.menu1.configure(relief="flat",overrelief="flat",activebackground="mistyrose",cursor="hand2",foreground="black",background="#d46c91",font=("-family {Poppins SemiBold} -size 10"))
         self.menu1.configure(borderwidth="2")
-        self.menu1.configure(text="IMVENTARIO")
+        self.menu1.configure(text="INVENTARIO")
        
 
 
@@ -455,7 +454,7 @@ class Inventory:
         self.tree.heading("In Stock", text="En Stock", anchor=W)
         self.tree.heading("MRP", text="P. de Compra", anchor=W)
         self.tree.heading("Cost Price", text="P. de Venta ", anchor=W)
-        self.tree.heading("Vendor No.", text="Vendor No.", anchor=W)
+        self.tree.heading("Vendor No.", text="Soporte No.", anchor=W)
 
         self.tree.column("#0", stretch=NO, minwidth=0, width=0)
         self.tree.column("#1", stretch=NO, minwidth=0, width=80)
@@ -485,7 +484,7 @@ class Inventory:
         try:
             to_search = int(self.entry1.get())
         except ValueError:
-            messagebox.showerror("Oops!!", "ID de Producto invalidop.", parent=inv)
+            messagebox.showerror("Oops!!", "ID de Producto incorrecto.", parent=inv)
         else:
             for search in val:
                 if search==to_search:
@@ -554,13 +553,11 @@ class Inventory:
 
 
         elif len(self.sel)==0:
-            messagebox.showerror("Error","Selecciona un producto para actualizar", parent=inv)
+            messagebox.showerror("Error","Selecciona 1 producto para actualizar", parent=inv)
         else:
-            messagebox.showerror("Error","Solo puedes actualizar un producto a la vez.", parent=inv)
+            messagebox.showerror("Error","Solo puedes actualizar 1 producto a la vez.", parent=inv)
 
         p_update.mainloop()
-
-    
 
     def add_product(self):
         global p_add
@@ -576,18 +573,16 @@ class Inventory:
         self.clock.after(1000, self.time)
 
     def Exit(self):
-        sure = messagebox.askyesno("Salir","Estás sehuro de salir?", parent=inv)
+        sure = messagebox.askyesno("Salir","Estás seguro?", parent=inv)
         if sure == True:
             inv.destroy()
             adm.deiconify()
 
     def ex2(self):
-        sure = messagebox.askyesno("Salir","Estás seguro de salir?", parent=p_update)
+        sure = messagebox.askyesno("Salir","Estás seguro?", parent=p_update)
         if sure == True:
             p_update.destroy()
             inv.deiconify()
-
-
 
     def Logout(self):
         sure = messagebox.askyesno("Cerrar", "Estás seguro de cerrar sesión?")
@@ -595,7 +590,6 @@ class Inventory:
             root.deiconify()
             page1.entry1.delete(0, END)
             page1.entry2.delete(0, END)
-
 
 class add_product:
     def __init__(self, top=None):
@@ -667,7 +661,7 @@ class add_product:
         self.button1.configure(background="#d46c91")
         self.button1.configure(font="-family {Poppins SemiBold} -size 14")
         self.button1.configure(borderwidth="0")
-        self.button1.configure(text="""ADD""")
+        self.button1.configure(text="""Añadir""")
         self.button1.configure(command=self.add)
 
         self.button2 = Button(p_add)
@@ -680,7 +674,7 @@ class add_product:
         self.button2.configure(background="#d46c91")
         self.button2.configure(font="-family {Poppins SemiBold} -size 14")
         self.button2.configure(borderwidth="0")
-        self.button2.configure(text="""CLEAR""")
+        self.button2.configure(text="""Limpiar""")
         self.button2.configure(command=self.clearr)
 
     def add(self):
@@ -701,13 +695,13 @@ class add_product:
                             try:
                                 float(pcp)
                             except ValueError:
-                                messagebox.showerror("Oops!", "Precio inválido.", parent=p_add)
+                                messagebox.showerror("Oops!", "Precio incorrecto.", parent=p_add)
                             else:
                                 if pmrp:
                                     try:
                                         float(pmrp)
                                     except ValueError:
-                                        messagebox.showerror("Oops!", "Invalido.", parent=p_add)
+                                        messagebox.showerror("Oops!", "Incorrecto.", parent=p_add)
                                     else:
                                         if valid_phone(pvendor):
                                             with sqlite3.connect("./Database/store.db") as db:
@@ -723,19 +717,19 @@ class add_product:
                                             page3.DisplayData()
                                             p_add.destroy()
                                         else:
-                                            messagebox.showerror("Oops!", "Numero de teléfono inválido.", parent=p_add)
+                                            messagebox.showerror("Oops!", "Numero de teléfono incorrecto.", parent=p_add)
                                 else:
-                                    messagebox.showerror("Oops!", "Please enter MRP.", parent=p_add)
+                                    messagebox.showerror("Oops!", "Introduzca: Precio de venta.", parent=p_add)
                         else:
-                            messagebox.showerror("Oops!", "introduzca una cifra válida.", parent=p_add)
+                            messagebox.showerror("Oops!", "introduzca: Cifra correcta.", parent=p_add)
                     else:
-                        messagebox.showerror("Oops!", "Introduzca una cantidad correcta.", parent=p_add)
+                        messagebox.showerror("Oops!", "Introduzca: Cantidad correcta.", parent=p_add)
                 else:
-                    messagebox.showerror("Oops!", "Introduzca sub-categoria.", parent=p_add)
+                    messagebox.showerror("Oops!", "Introduzca: Sub-categoria.", parent=p_add)
             else:
-                messagebox.showerror("Oops!", "Introduzca categoria del producto.", parent=p_add)
+                messagebox.showerror("Oops!", "Introduzca: Categoria del producto.", parent=p_add)
         else:
-            messagebox.showerror("Oops!", "Introduzca el Nombre del Producto", parent=p_add)
+            messagebox.showerror("Oops!", "Introduzca: Nombre del Producto", parent=p_add)
 
     def clearr(self):
         self.entry1.delete(0, END)
@@ -757,7 +751,6 @@ class add_product:
         string = strftime("%H:%M:%S %p")
         self.clock.config(text=string)
         self.clock.after(1000, self.time)
-
 
 class Update_Product:
     def __init__(self, top=None):
@@ -921,14 +914,12 @@ class Update_Product:
         self.clock.config(text=string)
         self.clock.after(1000, self.time)
     
-
-
 class Employee:
     def __init__(self, top=None):
         top.geometry("1366x768")
         ult.centrar_ventana(top,1366,768)
         top.resizable(0, 0)
-        top.title("Employee Management")
+        top.title("CAJA")
 
         self.label1 = Label(emp)
         self.label1.place(relx=0, rely=0, width=1366, height=768)
@@ -1134,7 +1125,7 @@ class Employee:
                 messagebox.showinfo("Exito", " ID Personal: {} encontrado.".format(self.entry1.get()), parent=emp)
                 break
         else: 
-            messagebox.showerror("Oops!!", "ID personal: {} no encontrado.".format(self.entry1.get()), parent=emp)
+            messagebox.showerror("Oops!!", "ID Personal: {} no encontrado.".format(self.entry1.get()), parent=emp)
     
     sel = []
     def on_tree_select(self, Event):
@@ -1249,7 +1240,6 @@ class Employee:
             
             page1.entry1.delete(0, END)
             page1.entry2.delete(0, END)
-
 
 class add_employee:
     def __init__(self, top=None):
@@ -1397,12 +1387,11 @@ class add_employee:
         self.entry5.delete(0, END)
         self.entry6.delete(0, END)
 
-
 class Update_Employee:
     def __init__(self, top=None):
         top.geometry("1366x768")
         top.resizable(0, 0)
-        top.title("Update Employee")
+        top.title("Actualizar Personal")
 
         self.label1 = Label(e_update)
         self.label1.place(relx=0, rely=0, width=1366, height=768)
@@ -1463,7 +1452,7 @@ class Update_Employee:
         self.button1.configure(background="#d46c91")
         self.button1.configure(font="-family {Poppins SemiBold} -size 14")
         self.button1.configure(borderwidth="0")
-        self.button1.configure(text="""UPDATE""")
+        self.button1.configure(text="""Actualizar""")
         self.button1.configure(command=self.update)
 
         self.button2 = Button(e_update)
@@ -1499,24 +1488,24 @@ class Update_Employee:
                                         )
                                 cur.execute(update, [ename, econtact, eadd, eaddhar, epass, edes, emp_id])
                                 db.commit()
-                                messagebox.showinfo("Success!!", "Employee ID: {} successfully updated in database.".format(emp_id), parent=e_update)
+                                messagebox.showinfo("Realizado", "ID: {} actualizado en base de datos.".format(emp_id), parent=e_update)
                                 vall.clear()
                                 page5.tree.delete(*page5.tree.get_children())
                                 page5.DisplayData()
                                 Employee.sel.clear()
                                 e_update.destroy()
                             else:
-                                messagebox.showerror("Oops!", "Please enter a password.", parent=e_add)
+                                messagebox.showerror("Oops!", "Introduzca: Contraseña.", parent=e_add)
                         else:
-                            messagebox.showerror("Oops!", "Please enter address.", parent=e_add)
+                            messagebox.showerror("Oops!", "Introduzca: Dirección.", parent=e_add)
                     else:
-                        messagebox.showerror("Oops!", "Please enter designation.", parent=e_add)
+                        messagebox.showerror("Oops!", "Introduzca: Cargo.", parent=e_add)
                 else:
-                    messagebox.showerror("Oops!", "Invalid Aadhar number.", parent=e_add)
+                    messagebox.showerror("Oops!", "Introduca: C.I. correcto.", parent=e_add)
             else:
-                messagebox.showerror("Oops!", "Invalid phone number.", parent=e_add)
+                messagebox.showerror("Oops!", "Introduzca: Número telefónico.", parent=e_add)
         else:
-            messagebox.showerror("Oops!", "Please enter employee name.", parent=e_add)
+            messagebox.showerror("Oops!", "Introduzca: Nombre.", parent=e_add)
 
 
     def clearr(self):
@@ -1548,15 +1537,12 @@ class Update_Employee:
         self.clock.config(text=string)
         self.clock.after(1000, self.time)
 
-
-        
-
 class Invoice:
     def __init__(self, top=None):
         top.geometry("1366x768")
         ult.centrar_ventana(top,1366,768)
         top.resizable(0, 0)
-        top.title("Invoices")
+        top.title("Facturas")
 
         self.label1 = Label(invoice)
         self.label1.place(relx=0, rely=0, width=1366, height=768)
@@ -1605,7 +1591,7 @@ class Invoice:
         self.button2.configure(background="#d46c91")
         self.button2.configure(font="-family {Poppins SemiBold} -size 12")
         self.button2.configure(borderwidth="0")
-        self.button2.configure(text="""Logout""")
+        self.button2.configure(text="""Cerrar Sesión""")
         self.button2.configure(command=self.Logout)
 
         self.button3 = Button(invoice)
@@ -1639,7 +1625,7 @@ class Invoice:
         self.menu1.place(relx=0.0, rely=0.0, width=86, height=20)
         self.menu1.configure(relief="flat",overrelief="flat",activebackground="palevioletred",cursor="hand2",foreground="#ffffff",background="#d46c91",font=("-family {Poppins SemiBold} -size 10"))
         self.menu1.configure(borderwidth="2")
-        self.menu1.configure(text="IMVENTARIO")
+        self.menu1.configure(text="INVENTARIO")
         self.menu1.configure(command=menu5)
        
 
@@ -1757,13 +1743,13 @@ class Invoice:
                     cur.execute(delete, [k])
                     db.commit()
 
-                messagebox.showinfo("Success!!", "IFactura(s) eliminada de la Base de Datos.", parent=invoice)
+                messagebox.showinfo("Success!!", "Factura(s) eliminada(s) de la Base de Datos.", parent=invoice)
                 self.sel.clear()
                 self.tree.delete(*self.tree.get_children())
 
                 self.DisplayData()
         else:
-            messagebox.showerror("Error!!","Please select an invoice", parent=invoice)
+            messagebox.showerror("Error!!","Selecciona una factura", parent=invoice)
 
     def search_inv(self):
         val = []
@@ -1777,14 +1763,14 @@ class Invoice:
             if search==to_search:
                 self.tree.selection_set(val[val.index(search)-1])
                 self.tree.focus(val[val.index(search)-1])
-                messagebox.showinfo("Success!!", "Bill Number: {} found.".format(self.entry1.get()), parent=invoice)
+                messagebox.showinfo("Realizado!!", "Número de Factura: {} encontrado.".format(self.entry1.get()), parent=invoice)
                 break
         else: 
-            messagebox.showerror("Oops!!", "Bill NUmber: {} not found.".format(self.entry1.get()), parent=invoice)
+            messagebox.showerror("Oops!!", "Número de Factura: {} no encontrado.".format(self.entry1.get()), parent=invoice)
 
 
     def Logout(self):
-        sure = messagebox.askyesno("Logout", "Are you sure you want to logout?")
+        sure = messagebox.askyesno("Cerrar", "Estás seguro de cerrar sesión?")
         if sure == True:
             invoice.destroy()
             root.deiconify()
@@ -1797,18 +1783,17 @@ class Invoice:
         self.clock.after(1000, self.time)
 
     def Exit(self):
-        sure = messagebox.askyesno("Exit","Are you sure you want to exit?", parent=invoice)
+        sure = messagebox.askyesno("Salir","Está seguro?", parent=invoice)
         if sure == True:
             invoice.destroy()
             adm.deiconify()
-
 
 class open_bill:
     def __init__(self, top=None):
         
         top.geometry("765x488")
         top.resizable(0, 0)
-        top.title("Bill")
+        top.title("Facturas Pen")
 
         self.label1 = Label(bill)
         self.label1.place(relx=0, rely=0, width=765, height=488)
@@ -1865,6 +1850,7 @@ class open_bill:
             self.Scrolledtext1.configure(state="normal")
             self.Scrolledtext1.insert(END, results[0][4])
             self.Scrolledtext1.configure(state="disabled")
+
 
 page1 = login_page(root)
 root.bind("<Return>", login_page.login)
