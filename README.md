@@ -1,16 +1,14 @@
-# MINIMALIST RETAIL MANAGEMENT SYSTEM
+# SISTEMA DE GESTION DE UNA CHURRASQUERIA
 
-This project was made for a mini project in school. Feel free to improve the code quality. Cheers!
-
-## This repository consists of a GUI-based Retail Management System in Python(using tkinter). 
-
+Este proyecto fue hecho por los estudiantes de ANALISIS Y DISENO DE SISTEMAS
+NOMBRES:
+	Apaza Guzmán Juan Agustin
+	Miguel Angel Cazón Huanca 
+	Kevin Jose Ollisco Claure 
+	Soledad Cerezo Guzmán
+	Mauricio Joel Flores Garzofino
+ 
 ### Pre-Requisites
 `Python 3.7`
-
-### Screenshots
-![alt text](https://github.com/realmacaw/real-mart/blob/master/images/main.png)
-![alt text](https://github.com/realmacaw/real-mart/blob/master/images/employee_login.png)
-![alt text](https://github.com/realmacaw/real-mart/blob/master/images/bill_window.png)
-![alt text](https://github.com/realmacaw/real-mart/blob/master/images/update_employee.png)
-
+`BD Browser SQLite
 
